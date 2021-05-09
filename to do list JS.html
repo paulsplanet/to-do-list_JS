@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>todoListJS</title>
+    <style>
+        * { padding: 0px; margin: 0px; }
+        html body { height: 100%; width: 100%}
+        #app {
+            width: 50%;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .panel {
+            width: 90%;
+            text-align: center;
+            background-color: bisque;
+        }
+        span {
+            display: block;
+            margin-top: 20px;
+            font-size: 2rem;
+        }
+        li {
+            list-style: none;
+        }
+        .controller {
+            margin: 8px 0px;
+            height: 2rem;
+        }
+    </style>
+</head>
+<body>  
+    <div id="app">
+        <div id="inputPanel" class="panel">
+            <span>My To Do List</span>
+            <div class="controller">
+                <input id="input" type="text" placeholder="type your ToDo here">
+                <button id="addOn">Add</button>
+            </div>
+        </div>
+        <div id="listPanel" class="panel">
+            <ul id="list">
+                <li>Your To Do List Here</li>
+            </ul>
+        </div>
+    </div>
+    
+</body>
+</html>
