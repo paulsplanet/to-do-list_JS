@@ -49,5 +49,17 @@
         </div>
     </div>
     
+    <script>
+        function newList() {
+            const todo = document.getElementById("input").value;
+            const newItem = ` <li>${todo}</li> `
+            addList.innerHTML = newItem;
+        }
+
+        const button = document.getElementById("addOn");
+        button.addEventListener("click", newList);
+
+        const addList = document.getElementById("list");
+    </script>
 </body>
 </html>
