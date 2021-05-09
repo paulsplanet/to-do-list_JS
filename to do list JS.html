@@ -44,28 +44,24 @@
         </div>
         <div id="listPanel" class="panel">
             <ul id="list">
-                <li>Your To Do List Here</li>
+                
             </ul>
         </div>
     </div>
     
     <script>
-        let todoArray =[];
-
+        
         function newList() {
             const todo = document.getElementById("input").value;
-            const newItem = ` <li>${todo}</li> `;
+            const topComm = document.querySelector(".initial");
             let li = document.createElement("li");
+            li.appendChild(document.createTextNode(todo));
 
             if (todo === '') {
                 alert("Please type your TO DO list")
             } else {
-                todoArray.push(todo);
+                addList.appendChild(li);
             }
-            console.log(todoArray);
-            li.appendChild(document.createTextNode(todo));
-            addList.appendChild(li);
-
         }
 
         const button = document.getElementById("addOn");
