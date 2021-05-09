@@ -19,7 +19,7 @@
             text-align: center;
             background-color: bisque;
         }
-        span {
+        .title {
             display: block;
             margin-top: 20px;
             font-size: 2rem;
@@ -36,10 +36,10 @@
 <body>  
     <div id="app">
         <div id="inputPanel" class="panel">
-            <span>My To Do List</span>
+            <span class="title">My To Do List</span>
             <div class="controller">
                 <input id="input" type="text" placeholder="type your ToDo here">
-                <button id="addOn">Add</button>
+                <span id="addOn">Add</span>
             </div>
         </div>
         <div id="listPanel" class="panel">
@@ -50,10 +50,22 @@
     </div>
     
     <script>
+        let todoArray =[];
+
         function newList() {
             const todo = document.getElementById("input").value;
-            const newItem = ` <li>${todo}</li> `
-            addList.innerHTML = newItem;
+            const newItem = ` <li>${todo}</li> `;
+            let li = document.createElement("li");
+
+            if (todo === '') {
+                alert("Please type your TO DO list")
+            } else {
+                todoArray.push(todo);
+            }
+            console.log(todoArray);
+            li.appendChild(document.createTextNode(todo));
+            addList.appendChild(li);
+
         }
 
         const button = document.getElementById("addOn");
