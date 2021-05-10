@@ -37,12 +37,15 @@
             margin: 8px 0px;
             height: 2rem;
         }
+        .close {
+            display: none;
+        }
     </style>
 </head>
 <body>  
     <div id="app">
         <div id="inputPanel" class="panel">
-            <span class="title">My To Do List</span>
+            <span class="title" id="test">My To Do List</span>
             <div class="controller">
                 <input id="input" type="text" placeholder="type your ToDo here">
                 <button type="button" id="addOn">Add</button>
@@ -63,41 +66,32 @@
             li.appendChild(document.createTextNode(todo));
             let delBtn = document.createElement("span");
             delBtn.className = "dele";
+            delBtn.setAttribute('onclick', 'parentElement.className="close"');
             delBtn.appendChild(document.createTextNode("Del"));
 
             if (todo === '') {
-                alert("Please type your TO DO list")
+                return;
             } else {
                 addList.appendChild(li).appendChild(delBtn);
                 input.value='';
-            }  
+            
+            };  
+            
         }
 
-        function newListTwo() {
-            const todo = document.getElementById("input").value;
-            let li = document.createElement("li");
-            li.appendChild(document.createTextNode(todo));
-            let delBtn = document.createElement("span");
-            delBtn.className = "dele";
-            delBtn.appendChild(document.createTextNode("Del"));
-
-            if (todo === '') {
-                alert("Please type your TO DO list")
-            } else {
-                addList.appendChild(li).appendChild(delBtn);
-                
-            }  
-        }
-
-        
 
         const button = document.getElementById("addOn");
-        button.addEventListener("click", newListTwo);
+        button.addEventListener("click", newList);
 
         const input = document.getElementById("input");
         input.addEventListener("change", newList);
 
         const addList = document.getElementById("list");
+
+        const next = document.getElementsByClassName("dele");
+      
+        
+
     </script>
 </body>
 </html>
