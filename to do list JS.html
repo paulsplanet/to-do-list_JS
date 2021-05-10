@@ -26,6 +26,12 @@
         }
         li {
             list-style: none;
+            width: 80%;
+            display: inline-block;
+        }
+        .dele {
+            float: right;
+            color: red;
         }
         .controller {
             margin: 8px 0px;
@@ -39,7 +45,7 @@
             <span class="title">My To Do List</span>
             <div class="controller">
                 <input id="input" type="text" placeholder="type your ToDo here">
-                <span id="addOn">Add</span>
+                <button type="button" id="addOn">Add</button>
             </div>
         </div>
         <div id="listPanel" class="panel">
@@ -53,19 +59,43 @@
         
         function newList() {
             const todo = document.getElementById("input").value;
-            const topComm = document.querySelector(".initial");
             let li = document.createElement("li");
             li.appendChild(document.createTextNode(todo));
+            let delBtn = document.createElement("span");
+            delBtn.className = "dele";
+            delBtn.appendChild(document.createTextNode("Del"));
 
             if (todo === '') {
                 alert("Please type your TO DO list")
             } else {
-                addList.appendChild(li);
-            }
+                addList.appendChild(li).appendChild(delBtn);
+                input.value='';
+            }  
         }
 
+        function newListTwo() {
+            const todo = document.getElementById("input").value;
+            let li = document.createElement("li");
+            li.appendChild(document.createTextNode(todo));
+            let delBtn = document.createElement("span");
+            delBtn.className = "dele";
+            delBtn.appendChild(document.createTextNode("Del"));
+
+            if (todo === '') {
+                alert("Please type your TO DO list")
+            } else {
+                addList.appendChild(li).appendChild(delBtn);
+                
+            }  
+        }
+
+        
+
         const button = document.getElementById("addOn");
-        button.addEventListener("click", newList);
+        button.addEventListener("click", newListTwo);
+
+        const input = document.getElementById("input");
+        input.addEventListener("change", newList);
 
         const addList = document.getElementById("list");
     </script>
