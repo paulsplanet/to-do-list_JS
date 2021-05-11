@@ -8,35 +8,106 @@
     <style>
         * { padding: 0px; margin: 0px; }
         html body { height: 100%; width: 100%}
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+        body {
+            background-color: #fbfbfb;
+            font-family: 'Roboto', sans-serif;
+        }
         #app {
-            width: 50%;
+            width: 600px;
             position: absolute;
             left: 50%;
-            transform: translateX(-50%);
-        }
-        .panel {
-            width: 90%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #ffffff;
+            border-radius: 30px;
+            box-shadow: 30px 30px 60px rgba(0, 0, 0, 0.05);
+            padding: 60px 75px;
             text-align: center;
-            background-color: bisque;
+            box-sizing: border-box;
+        }
+        #inputPanel {
+            margin-bottom: 24px;
         }
         .title {
             display: block;
-            margin-top: 20px;
-            font-size: 2rem;
+            font-size: 22px;
+            margin-bottom: 32px;
+            font-weight: bold;
+        }
+        .controller {
+            width: 450px;
+            height: 48px;
+            margin: auto;
+        }
+        #input {
+            width: 350px;
+            height: 48px;
+            border: 1px solid #c7c7c7;
+            border-radius: 8px 0px 0px 8px;
+            box-sizing: border-box;
+            float: left;
+            font-size: 16px;
+            padding: 15px;
+        }
+        input::placeholder { color: #c7c7c7; }
+        #addOn {
+            width: 100px;
+            height: 48px;
+            background-color: #238058;
+            box-sizing: border-box;
+            border-radius: 0px 8px 8px 0px;
+            float: left;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+        }
+        #listPanel {
+            width: 450px;
+            margin: auto;
         }
         li {
+            background-color: #ffeaaa;
+            width: 450px;
+            height: 48px;
             list-style: none;
-            width: 80%;
+            line-height: 40px;
+            font-size: 16px;
+            text-align: left;
+            text-transform: uppercase;
+            padding: 4px 4px 4px 40px;
+            box-sizing: border-box;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            z-index: 1;
+            position: relative;
+        }
+        li::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            border-radius: 8px;
+            background-color: white;
+            z-index: 5;
             display: inline-block;
+            position: absolute;
+            top: 20px;
+            left: 20px;
         }
         .dele {
             float: right;
-            color: red;
+            color: #B00020;
+            font-size: 16px;
+            font-weight: bold;
+            width: 97px;
+            height: 40px;
+            background-color: white;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
         }
-        .controller {
-            margin: 8px 0px;
-            height: 2rem;
-        }
+        
         .close {
             display: none;
         }
@@ -45,10 +116,10 @@
 <body>  
     <div id="app">
         <div id="inputPanel" class="panel">
-            <span class="title" id="test">My To Do List</span>
+            <span class="title">MY TO DO LIST</span>
             <div class="controller">
-                <input id="input" type="text" placeholder="type your ToDo here">
-                <button type="button" id="addOn">Add</button>
+                <input id="input" type="text" placeholder="type your to do here">
+                <button type="button" id="addOn">ADD</button>
             </div>
         </div>
         <div id="listPanel" class="panel">
@@ -67,7 +138,7 @@
             let delBtn = document.createElement("span");
             delBtn.className = "dele";
             delBtn.setAttribute('onclick', 'parentElement.className="close"');
-            delBtn.appendChild(document.createTextNode("Del"));
+            delBtn.appendChild(document.createTextNode("DEL"));
 
             if (todo === '') {
                 return;
@@ -76,8 +147,7 @@
                 input.value='';
             
             };  
-            
-        }
+         }
 
 
         const button = document.getElementById("addOn");
