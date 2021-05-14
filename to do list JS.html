@@ -118,8 +118,8 @@
         <div id="inputPanel" class="panel">
             <span class="title">MY TO DO LIST</span>
             <div class="controller">
-                <input id="input" type="text" placeholder="type your to do here">
-                <button type="button" id="addOn">ADD</button>
+                    <input id="input" type="text" placeholder="type your to do here">
+                    <button type="button" id="addOn">ADD</button>
             </div>
         </div>
         <div id="listPanel" class="panel">
@@ -130,7 +130,11 @@
     </div>
     
     <script>
-        
+        const button = document.getElementById("addOn");
+        const input = document.getElementById("input");
+        const addList = document.getElementById("list");
+        const next = document.getElementsByClassName("dele");
+
         function newList() {
             const todo = document.getElementById("input").value;
             let li = document.createElement("li");
@@ -139,28 +143,17 @@
             delBtn.className = "dele";
             delBtn.setAttribute('onclick', 'parentElement.className="close"');
             delBtn.appendChild(document.createTextNode("DEL"));
-
+           
             if (todo === '') {
                 return;
             } else {
                 addList.appendChild(li).appendChild(delBtn);
                 input.value='';
-            
             };  
          }
-
-
-        const button = document.getElementById("addOn");
-        button.addEventListener("click", newList);
-
-        const input = document.getElementById("input");
-        input.addEventListener("change", newList);
-
-        const addList = document.getElementById("list");
-
-        const next = document.getElementsByClassName("dele");
-      
         
+        button.addEventListener("click", newList);
+        input.addEventListener("change", newList);   
 
     </script>
 </body>
